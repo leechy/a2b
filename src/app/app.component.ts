@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TrackingService } from './services/tracking.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,12 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      if (this.platform.is('android')) {
+        // fix for the status bar in Android
+        this.statusBar.styleBlackOpaque();
+      } else {
+        this.statusBar.styleDefault();
+      }
       this.splashScreen.hide();
     });
   }
