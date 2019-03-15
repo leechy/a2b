@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="dev.leechy.a2b" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>a2b</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <description>Ionic 4 background geolocation starter</description>
+    <author email="leechy@leechy.dev" href="http://leechy.dev/">Leechy</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -83,21 +83,21 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
+    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="3.0.0-alpha.50">
+        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
+        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="26+" />
+        <variable name="ALWAYS_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
+        <variable name="MOTION_USAGE_DESCRIPTION" value="A2B+ needs to know when you move" />
+        <variable name="LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
+        <variable name="LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
+    </plugin>
     <edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationWhenInUseUsageDescription">
         <string>A2B+ needs to track your location</string>
     </edit-config>
     <edit-config file="*-Info.plist" mode="merge" platform="ios" target="NSLocationAlwaysUsageDescription">
         <string>A2B+ needs to track your location</string>
     </edit-config>
-    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="2.3.6">
-        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
-        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="23+" />
-        <variable name="ALWAYS_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
-        <variable name="LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
-        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
-        <variable name="LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION" value="A2B+ needs to track your location" />
-        <variable name="MOTION_USAGE_DESCRIPTION" value="Using the accelerometer increases battery-efficiency by intelligently toggling location-tracking only when the device is detected to be moving" />
-    </plugin>
+    <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.5" />
-    <engine name="android" spec="7.1.4" />
 </widget>

@@ -20,13 +20,15 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      if (this.platform.is('android')) {
-        // fix for the status bar in Android
-        this.statusBar.styleBlackOpaque();
-      } else {
-        this.statusBar.styleDefault();
+      if (this.platform.is('cordova')) {
+        if (this.platform.is('android')) {
+          // fix for the status bar in Android
+          this.statusBar.styleBlackOpaque();
+        } else {
+          this.statusBar.styleDefault();
+        }
+        this.splashScreen.hide();
       }
-      this.splashScreen.hide();
     });
   }
 }
