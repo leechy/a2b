@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackingService } from '../services/tracking.service';
+import { LogService } from '../services/log.service';
 import { Coords } from 'src/models/coords';
 
 @Component({
@@ -11,7 +12,7 @@ export class Tab1Page implements OnInit {
   tracking = false;
   track: Coords[] = [];
 
-  constructor(private trackingService: TrackingService) {}
+  constructor(private trackingService: TrackingService, private log: LogService) {}
 
   ngOnInit() {
     this.trackingService.tracking.subscribe(tracking => (this.tracking = tracking));
@@ -22,10 +23,12 @@ export class Tab1Page implements OnInit {
   }
 
   startTracking() {
+    this.log.append('[APP] Start button pressed');
     this.trackingService.start();
   }
 
   stopTracking() {
+    this.log.append('[APP] Stop button pressed');
     this.trackingService.stop();
   }
 }
